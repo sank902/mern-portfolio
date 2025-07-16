@@ -8,7 +8,7 @@ import Contact from './pages/Contact';
 import Skills from './pages/Skills';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import TestConnection from './components/TestConnection'; // ✅ Added
+//import TestConnection from './components/TestConnection'; // ✅ Added.   /*<TestConnection />*/
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +23,7 @@ function App() {
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         {/* ✅ Add TestConnection at the top */}
         <div className="p-4">
-          <TestConnection />
+         
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
