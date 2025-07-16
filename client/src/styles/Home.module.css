@@ -1,0 +1,225 @@
+:root {
+  /* Light Mode */
+  --bg-dark: #ffffff;
+  --bg-darker: #f9fafb;
+  --primary: #4F46E5;
+  --gray: #6B7280;
+  --text-on-primary: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+  --bg-dark: #1F2937;
+  --bg-darker: #111827;
+  --primary: #7C3AED;
+  --gray: #D1D5DB;
+  --text-primary: #f9fafb;
+  --text-secondary: #9CA3AF;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-darker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.name {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.underline {
+  height: 4px;
+  width: 100px;
+  background-color: var(--primary);
+  border-radius: 9999px;
+  margin: 0 auto 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.bioText {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.socialIcon {
+  padding: 0.75rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  transform: translateY(-2px);
+}
+
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+/* ====== Hero Animation: Fade and Slide Up ====== */
+.hero {
+  animation: fadeSlideUp 1s ease-out both;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Name Animation: Smooth Scale In ====== */
+.name {
+  animation: scaleIn 1s ease-out 0.5s both;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ====== Underline Animation: Grow Width ====== */
+.underline {
+  animation: underlineGrow 1s ease-out 1s both;
+}
+
+@keyframes underlineGrow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 120px;
+    opacity: 1;
+  }
+}
+
+/* ====== BioText Staggered Fade Up Animation ====== */
+.bioText span {
+  opacity: 0;
+  transform: translateY(20px);
+  display: block;
+  animation: fadeInStagger 0.6s ease-out forwards;
+}
+
+.bioText span:nth-child(1) { animation-delay: 1.2s; }
+.bioText span:nth-child(2) { animation-delay: 1.4s; }
+.bioText span:nth-child(3) { animation-delay: 1.6s; }
+.bioText span:nth-child(4) { animation-delay: 1.8s; }
+.bioText span:nth-child(5) { animation-delay: 2s; }
+
+@keyframes fadeInStagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Button Animation: Subtle Bounce In ====== */
+.btn {
+  animation: btnEnter 1s ease-out 2.2s both;
+}
+
+@keyframes btnEnter {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ====== Social Icon Animation: Zoom In ====== */
+.socialIcon {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: socialZoom 0.5s ease-out forwards;
+}
+
+.socialIcon:nth-child(1) { animation-delay: 2.4s; }
+.socialIcon:nth-child(2) { animation-delay: 2.6s; }
+.socialIcon:nth-child(3) { animation-delay: 2.8s; }
+
+@keyframes socialZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
