@@ -5,7 +5,7 @@ const TestConnection = () => {
   const [response, setResponse] = useState(null);
 
   useEffect(() => {
-    axios.get('https://mern-portfolio-xxmy.onrender.com') // Replace with deployed backend URL after deployment
+axios.get('https://mern-portfolio-xxmy.onrender.com')
       .then(res => {
         setResponse(res.data);
       })
