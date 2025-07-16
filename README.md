@@ -77,22 +77,34 @@ mern-portfolio/
 ```bash
 git clone https://github.com/your-username/mern-portfolio.git
 cd mern-portfolio
+
+
+
+
+Setup Backend
+
 cd backend
 cp .env.example .env        # Fill in values for MONGO_URI, JWT_SECRET, PORT
 npm install
 npm run dev                 # Starts the backend server on PORT
+
+
+
+
+
+
 .env.example content:
 
-ini
-Copy
-Edit
+
 PORT=5000
 MONGO_URI=your_mongodb_connection_uri
 JWT_SECRET=your_jwt_secret
+
+
+
+
 3️⃣ Setup Frontend
-bash
-Copy
-Edit
+
 cd ../client
 npm install
 npm start                   # Starts the React app on localhost:3000
