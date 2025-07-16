@@ -9,7 +9,7 @@ const About = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get('/api/skills');
+        const response = await axios.get('https://mern-portfolio-xxmy.onrender.com/api/skills');
         setSkills(response.data);
       } catch (error) {
         console.error('Error fetching skills:', error);

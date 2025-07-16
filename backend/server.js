@@ -1,15 +1,39 @@
+
 require('dotenv').config();
+const rateLimit = require('express-rate-limit');
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
+
 
 // Initialize Express app
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 app.use(express.json());
 
+
+app.use(helmet());
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: '⚠️ Too many requests, please try again later.',
+});
+app.use(limiter);
+
+// JSON parser
+app.use(express.json());
+
+// Basic route
+app.get('/', (req, res) => {
+  res.send('🌐 MERN Backend API Running Securely');
+});
 // Debugging
 console.log('Environment Variables:', {
   MONGODB_URI: process.env.MONGODB_URI ? '***loaded***' : 'MISSING',
