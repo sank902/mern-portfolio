@@ -47,52 +47,56 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className={styles.section} id="projects">
-      <div className="container">
-        <div className={styles.header}>
-          <h2 className={styles.title}>Featured Projects</h2>
-          <div className={styles.divider} />
-        </div>
+    
+    <main className="page-container">
+      <section className={styles.section} id="projects">
+        <div className="container">
+          <div className={styles.header}>
+            <h2 className={styles.title}>Featured Projects</h2>
+            <div className={styles.divider} />
+          </div>
 
-        <div className={styles.grid}>
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className={styles.card}>
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className={styles.cardImage}
-                />
-                <div className={styles.cardContent}>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <p className={styles.cardDescription}>{project.description}</p>
-                  <div className={styles.techList}>
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className={styles.techItem}>{tech}</span>
-                    ))}
-                  </div>
-                  <div className={styles.links}>
-                    <a href={project.github} className={styles.link}>
-                      <FiGithub className={styles.linkIcon} />
-                      Code
-                    </a>
-                    <a href={project.live} className={styles.link}>
-                      <FiExternalLink className={styles.linkIcon} />
-                      Live Demo
-                    </a>
+          <div className={styles.grid}>
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                
+                animate={{ opacity: 1, y: 0 }}
+                
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className={styles.card}>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className={styles.cardImage}
+                  />
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>{project.title}</h3>
+                    <p className={styles.cardDescription}>{project.description}</p>
+                    <div className={styles.techList}>
+                      {project.tech.map((tech, i) => (
+                        <span key={i} className={styles.techItem}>{tech}</span>
+                      ))}
+                    </div>
+                    <div className={styles.links}>
+                      <a href={project.github} className={styles.link}>
+                        <FiGithub className={styles.linkIcon} />
+                        Code
+                      </a>
+                      <a href={project.live} className={styles.link}>
+                        <FiExternalLink className={styles.linkIcon} />
+                        Live Demo
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

@@ -1,28 +1,91 @@
-/* If you are not using Tailwind CSS with PostCSS, remove these lines. Otherwise, ensure your build pipeline supports Tailwind directives. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --primary-color: #0A192F; 
+  --secondary-color: #F97316; 
+  --tertiary-color: #54D6BB; 
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #cccccc;
+}
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-color);
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+i {
+  color: var(--secondary-color);
 }
 
-/* Dark mode transitions */
-html.dark {
-  background-color: #111827; /* Tailwind bg-gray-900 */
-  color: #f3f4f6;           /* Tailwind text-gray-100 */
+h1 {
+  font-size: 60px;
+  color: var(--tertiary-color);
 }
 
-/* Smooth theme switching */
-html {
-  transition-property: color, background-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+p {
+  color: var(--white);
+}
+
+.primary-button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.section-title {
+  font-size: 50px;
+}
+
+.cursor {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.cursor-pointer {
+  transform: scale(3);
+  border: 2px solid var(--tertiary-color);
+}
+
+.header {
+  padding: 20px;
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3d4a61;
+}
+
+.ri-menu-line {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .ri-menu-line {
+    display: flex !important;
+  }
 }

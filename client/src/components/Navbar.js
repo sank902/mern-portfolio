@@ -1,21 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <Link to="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>AC</Link>
-        <button
-  onClick={() => setDarkMode(prev => !prev)}
-  className={styles.themeToggleBtn}
->
-  {darkMode ? '☀️ Light' : '🌙 Dark'}
-</button>
+        
+        
 
         <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
           <Link to="/" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Home</Link>
@@ -36,4 +42,3 @@ export default function Navbar({ darkMode, setDarkMode }) {
     </nav>
   );
 }
-

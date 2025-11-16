@@ -98,7 +98,7 @@
   transition: width 1s ease;
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
   .skillsGrid {
     grid-template-columns: 1fr;
